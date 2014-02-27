@@ -33,12 +33,14 @@ describe UsersController do
     end
   end
 
-  # describe "GET 'show'" do
-  #   it "returns http success" do
-  #     get 'show'
-  #     response.should be_success
-  #   end
-  # end
+  describe "GET 'show'" do
+    it "returns http success" do
+      User.should_receive(:find).with('123').and_return("a user")
+      get 'show', {id: 123}
+      expect(assigns(:user)).to eq "a user"
+      response.should be_success
+    end
+  end
 
   describe "GET 'index'" do
     it "returns http success" do
@@ -64,9 +66,9 @@ describe UsersController do
   #   end
   # end
 
-  # describe "GET 'post'" do
+  # describe "PUT 'update'" do
   #   it "returns http success" do
-  #     get 'post'
+  #     put 'update'
   #     response.should be_success
   #   end
   # end
