@@ -52,12 +52,16 @@ describe UsersController do
   end
 
 
-  # describe "GET 'destroy'" do
-  #   it "returns http success" do
-  #     get 'destroy'
-  #     response.should be_success
-  #   end
-  # end
+  describe "DELETE 'destroy'" do
+    a = User.create(username: 'lorencio', password:'123456')
+    b = User.create(username: '2lorencio', password:'123456')
+    it "returns http success" do
+      User.should_receive(:find).with('123').and_return("user was deleted")
+      delete 'destroy', {id: 123}
+      response.should be_success
+      expect { delete user_path }.to change(User,:count).by(-1)
+    end
+  end
 
   # describe "GET 'edit'" do
   #   it "returns http success" do

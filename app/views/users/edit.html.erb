@@ -1,2 +1,23 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div>
+    <%= form_for @user do |u| %>
+        <%= u.label :first_name %>
+        <%= u.text_field :first_name, :place_holder => "Enter your first name" %>
+
+        <%= u.label :last_name %>
+        <%= u.text_field :last_name, :place_holder => "Enter your last name" %>
+
+        <%= u.label :username %>
+        <%= u.text_field :username, :place_holder => "Enter your username" %>
+
+        <%= u.label :location %>
+        <%= u.text_field :location, :place_holder => "Enter your zip code" %>
+
+        <%= u.label :email %>
+        <%= u.text_field :email, :place_holder => "Enter your email" %>
+
+        <%= u.label :password %>
+        <%= u.password_field :password, :place_holder => "Enter your password" %> 
+
+        <%= u.submit "Finish profile" %>       
+    <% end %>
+</div>

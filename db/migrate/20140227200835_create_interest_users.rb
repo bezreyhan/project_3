@@ -1,4 +1,4 @@
-class CreateInterestUsers < ActiveRecord::Migration
+class CreateUserInterests < ActiveRecord::Migration
   def change
     create_table :interest_users do |t|
       t.references :user, index: true
