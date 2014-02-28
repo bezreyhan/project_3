@@ -5,6 +5,7 @@ class AuthsController < ApplicationController
   def create
   end
 
+
   def destroy
   end
 end
