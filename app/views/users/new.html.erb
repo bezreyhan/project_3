@@ -1,14 +1,20 @@
 <div>
     <%= form_for @user do |u| %>
-        <%= u.label :username %>
-        <%= u.text_field :username, :place_holder => "Enter your username" %>
+        <div>
+            <%= u.label :username %><br />
+            <%= u.text_field :username, :placeholder => "Enter your username" %>
+        </div>
 
-        <%= u.label :email %>
-        <%= u.text_field :email, :place_holder => "Enter your email" %>
-
-        <%= u.label :password %>
-        <%= u.password_field :password, :place_holder => "Enter your password" %> 
-
-        <%= u.submit "Sign up" %>       
+        <div>
+            <%= u.label :email %><br />
+            <%= u.text_field :email, :placeholder => "Enter your email" %>
+        </div>
+        <div>
+            <%= u.label :password %><br />
+            <%= u.password_field :password, :placeholder => "Enter your password" %> 
+        </div>  
+        <div>
+            <%= u.submit "Sign up" %>       
+        </div>
     <% end %>
 </div>

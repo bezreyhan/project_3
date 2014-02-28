@@ -1,5 +1,8 @@
 Paired::Application.routes.draw do
 
+  get "auths/new"
+  get "auths/create"
+  get "auths/destroy"
   get "user_interests/index"
   get "user_interests/new"
   get "user_interests/create"
