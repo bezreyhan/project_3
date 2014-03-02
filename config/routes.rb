@@ -1,24 +1,10 @@
 Paired::Application.routes.draw do
 
-  get "auths/new"
-  get "auths/create"
-  get "auths/destroy"
-  get "user_interests/index"
-  get "user_interests/new"
-  get "user_interests/create"
-  get "user_interests/show"
-  get "user_interests/edit"
-  get "user_interests/update"
-  get "user_interests/destroy"
-  get "interests/index"
-  get "interests/new"
-  get "interests/show"
-  get "interests/create"
-  get "interests/edit"
-  get "interests/update"
-  get "interests/destroy"
+  resources :auths, only: [:new, :create, :destory]
+  resources :user_interests
   resources :interests
   resources :users
+  
   # delete "users" => "users#destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

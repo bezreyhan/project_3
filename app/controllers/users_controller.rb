@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-
-    
   end
 
   def show
@@ -53,22 +51,9 @@ class UsersController < ApplicationController
     redirect_to users_url 
   end
 
-<<<<<<< HEAD
+
   private
     def user_params
       pararms.require(:user).permit(:first_name, :last_name, :username, :location, :email, :password)
     end
-=======
-  private 
-
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
-
-
-
-
->>>>>>> 1368a1c862c5a9a3e192dca05e96ee2898796753
-  
-
 end

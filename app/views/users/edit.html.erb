@@ -1,23 +1,92 @@
+<h1>My Profile</h1>
+
 <div>
     <%= form_for @user do |u| %>
-        <%= u.label :first_name %>
-        <%= u.text_field :first_name, :place_holder => "Enter your first name" %>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>First name:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :first_name %>
+                    <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+                </label>
+            </div>
+    
+            
+            <div class="large-4 columns">
+                <label>Last name:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :last_name %>
+                    <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
+                </label>
+            </div>
 
-        <%= u.label :last_name %>
-        <%= u.text_field :last_name, :place_holder => "Enter your last name" %>
+        </div>
+        
 
-        <%= u.label :username %>
-        <%= u.text_field :username, :place_holder => "Enter your username" %>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Username:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :username %>
+                    <%= u.text_field :username, :placeholder => "Enter your username" %>
+                </label>
+            </div>
+        </div>
+        
+            
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Interest:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                     <!-- collection_check_boxes -->
+                    <%#= u.label :interest %>
+                    <%= collection_select :user, :password, Interest.all, :id, :name %>
+                </label>
+            </div>
+        </div>
 
-        <%= u.label :location %>
-        <%= u.text_field :location, :place_holder => "Enter your zip code" %>
+           
+        <div class="row">
+            <div class="large-4 columns">
+                <label> Location:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :location %>
+                    <%= u.text_field :location, :placeholder => "Enter your city" %>
+                </label>
+            </div>
+        </div>
+        
 
-        <%= u.label :email %>
-        <%= u.text_field :email, :place_holder => "Enter your email" %>
+        <div class="row">
+            <div class="large-4 columns">
+                <label> Email:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :email %>
+                    <%= u.text_field :email, :placeholder => "Enter your email" %>
+                </label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="large-4 columns">
+                <label> Password:<br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%#= u.label :password %>
+                    <%= u.password_field :password, :placeholder => "Enter your password" %>
+                </label>
+            </div>
+        </div>
+        
 
-        <%= u.label :password %>
-        <%= u.password_field :password, :place_holder => "Enter your password" %> 
+        
+        <div class="row">
+            <div class="large-4 columns">
+                <label> <br />
+                    <!-- <input type="text" placeholder="large-12.columns" /> -->
+                    <%= u.submit "Finish profile" %>
+                </label>
+            </div>
+        </div>
 
-        <%= u.submit "Finish profile" %>       
     <% end %>
 </div>

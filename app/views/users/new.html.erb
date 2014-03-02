@@ -1,8 +1,17 @@
+<h1>Paired</h1>
+<h4>Learn faster with a pair</h4>
+
 <div>
+    <h4>Sign up!</h4>
     <%= form_for @user do |u| %>
         <div>
-            <%= u.label :username %><br />
-            <%= u.text_field :username, :placeholder => "Enter your username" %>
+            <%= u.label :first_name %><br />
+            <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+        </div>
+
+        <div>
+            <%= u.label :last_name %><br />
+            <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
         </div>
 
         <div>

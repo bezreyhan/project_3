@@ -1,3 +1,228 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+    font-size: 50px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+
+/* profiles */
+
+.flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+
+    border: 1px solid #ccc;
+}
+
+.flip-container:hover .flipper,  
+  .flip-container.hover .flipper {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+.flip-container, .front, .back {
+    width: 320px;
+    height: 427px;
+}
+
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+.front, .back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    background: url(http://thumb7.shutterstock.com/display_pic_with_logo/244417/149679119/stock-vector-hands-silhouettes-with-hearts-149679119.jpg) 0 0 no-repeat;
+    position: center;
+    z-index: 2;
+}
+
+.back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+
+    background: #f8f8f8;
+}
+
+.front .name {
+    font-size: 2em;
+    display: inline-block;
+    background: rgba(33, 33, 33, 0.9);
+    color: #f8f8f8;
+    font-family: Courier;
+    padding: 5px 10px;
+    border-radius: 5px;
+    bottom: 60px;
+    left: 25%;
+    position: absolute;
+    text-shadow: 0.1em 0.1em 0.05em #333;
+
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+.back-logo {
+    position: absolute;
+    top: 40px;
+    left: 90px;
+    width: 160px;
+    height: 117px;
+    background: url(http://images.clipartof.com/thumbnails/28553-Clipart-Illustration-Of-A-Group-Of-Four-Guys-Standing-Together-Silhouetted-Over-White.jpg) 0 0 no-repeat;
+}
+
+.back-title {
+    font-weight: bold;
+    color: #00304a;
+    position: absolute;
+    top: 180px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-shadow: 0.1em 0.1em 0.05em #acd7e5;
+    font-family: Courier;
+    font-size: 2em;
+}
+
+.back p {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 20px;
+  font-family: arial;
+  line-height: 2em;
+}
+
+
+/* We use this to get basic styling on all basic form elements */
+/*input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: white;
+  font-family: inherit;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  height: 2.3125rem;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: -webkit-box-shadow 0.45s, border-color 0.45s ease-in-out;
+  -moz-transition: -moz-box-shadow 0.45s, border-color 0.45s ease-in-out;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out; }
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="month"]:focus,
+  input[type="week"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="time"]:focus,
+  input[type="url"]:focus,
+  textarea:focus {
+    -webkit-box-shadow: 0 0 5px #999999;
+    -moz-box-shadow: 0 0 5px #999999;
+    box-shadow: 0 0 5px #999999;
+    border-color: #999999; }
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="month"]:focus,
+  input[type="week"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="time"]:focus,
+  input[type="url"]:focus,
+  textarea:focus {
+    background: #fafafa;
+    border-color: #999999;
+    outline: none; }
+  input[type="text"][disabled],
+  input[type="password"][disabled],
+  input[type="date"][disabled],
+  input[type="datetime"][disabled],
+  input[type="datetime-local"][disabled],
+  input[type="month"][disabled],
+  input[type="week"][disabled],
+  input[type="email"][disabled],
+  input[type="number"][disabled],
+  input[type="search"][disabled],
+  input[type="tel"][disabled],
+  input[type="time"][disabled],
+  input[type="url"][disabled],
+  textarea[disabled] {
+    background-color: #dddddd; }*/
+
+
+
+
+
+
+
+
+
+
