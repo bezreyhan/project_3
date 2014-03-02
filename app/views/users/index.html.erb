@@ -1,0 +1,18 @@
+<%= flash[:notice] %> 
+
+<% @users.each do |u| %> 
+  
+  <div>
+    <%= u.username %>
+    <%= u.email %>
+    <%= u.hashed_password %>
+  </div>
+
+<% end %> 
+
+<!-- { controller: "auths", action: "destroy", id: current_user.id } -->
+<!-- commented code above was not working - it kept going to the show -->
+<% if current_user %>
+<%= link_to_if(current_user, "Log out", auth_path(current_user.id), method: :delete ) %>
+<% end %> 
+

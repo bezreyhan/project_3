@@ -1,3 +1,5 @@
+<div><%= flash[:notice] %></div>
+
 <div>
     <%= form_for @user do |u| %>
         <div>
@@ -17,4 +19,14 @@
             <%= u.submit "Sign up" %>       
         </div>
     <% end %>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready( function() {
+        $("#test").text("Bye");
+    })
+</script>
+
+<div>
+    <h1 id="test"> Hello </h1>
 </div>

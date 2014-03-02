@@ -10,5 +10,13 @@
 
 <%= yield %>
 
+<%= params %>
+
+<% if current_user %>
+  <%= current_user.email %>
+<% else %>
+  <%= "no current user" %>
+<% end %>  
+
 </body>
 </html>
