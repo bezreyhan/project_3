@@ -1,5 +1,15 @@
-<%#= render partial: '/layouts/navbar' %>
+<%= render partial: '/layouts/navbar' %>
 <h1>Profiles</h1>
+
+<dl class="sub-nav">
+  <dt>Filter:</dt>
+  <dd class="active"><a href="#">All</a></dd>
+  <dd><a href="#">Active</a></dd>
+  <dd><a href="#">Pending</a></dd>
+  <dd><a href="#">Suspended</a></dd>
+</dl>
+
+
 <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
   <div class="flipper">
     <div class="front">

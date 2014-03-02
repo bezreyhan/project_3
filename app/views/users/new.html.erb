@@ -4,26 +4,45 @@
 <div>
     <h4>Sign up!</h4>
     <%= form_for @user do |u| %>
-        <div>
-            <%= u.label :first_name %><br />
-            <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+        <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+                <label>First name:<br />
+                    <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+                </label>
+            </div>
         </div>
 
-        <div>
-            <%= u.label :last_name %><br />
-            <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
+       <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+                <label>Last name:<br />
+                    <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
+                </label>
+            </div>
+
         </div>
 
-        <div>
-            <%= u.label :email %><br />
-            <%= u.text_field :email, :placeholder => "Enter your email" %>
+        <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+                <label> Email:<br />
+                    <%= u.text_field :email, :placeholder => "Enter your email" %>
+                </label>
+            </div>
         </div>
-        <div>
-            <%= u.label :password %><br />
-            <%= u.password_field :password, :placeholder => "Enter your password" %> 
-        </div>  
-        <div>
-            <%= u.submit "Sign up" %>       
+
+        <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+                <label> Password:<br />
+                    <%= u.password_field :password, :placeholder => "Enter your password" %>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+                <label> <br />
+                    <%= u.submit "Sign up!" %>
+                </label>
+            </div>
         </div>
     <% end %>
 </div>

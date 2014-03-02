@@ -3,54 +3,61 @@
 <div>
     <%= form_for @user do |u| %>
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label>First name:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :first_name %>
                     <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
                 </label>
+                <!-- <small class="error">Please enter your first name.</small> -->
             </div>
+        </div>
     
-            
-            <div class="large-4 columns">
+        <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
                 <label>Last name:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :last_name %>
                     <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
                 </label>
+                <!-- <small class="error">Please enter your last name.</small> -->
             </div>
 
         </div>
         
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label>Username:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :username %>
                     <%= u.text_field :username, :placeholder => "Enter your username" %>
                 </label>
+                <!-- <small class="error">Please enter your username.</small> -->
             </div>
         </div>
         
             
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label>Interest:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
                      <!-- collection_check_boxes -->
-                    <%#= u.label :interest %>
                     <%= collection_select :user, :password, Interest.all, :id, :name %>
                 </label>
+                <!-- <small class="error">Please check an interest box.</small> -->
             </div>
         </div>
 
            
+        <div class="row" id='rating_selection'>
+            <div class="small-12 medium-6 large-4 columns"  >
+                 <label>Choose Your Skill Level</label>
+                        <input type="radio" name="rating" value="1" id="rating1"><label for="rating1">1</label>
+                        <input type="radio" name="rating" value="2" id="rating2"><label for="rating2">2</label>
+                        <input type="radio" name="rating" value="3" id="rating3"><label for="rating3">3</label>
+                        <input type="radio" name="rating" value="4" id="rating4"><label for="rating4">4</label>
+                        <input type="radio" name="rating" value="5" id="rating5"><label for="rating5">5</label>
+            </div>
+        </div>
+
+
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label> Location:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :location %>
                     <%= u.text_field :location, :placeholder => "Enter your city" %>
                 </label>
             </div>
@@ -58,31 +65,29 @@
         
 
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label> Email:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :email %>
                     <%= u.text_field :email, :placeholder => "Enter your email" %>
                 </label>
+                <!-- <small class="error">Please enter your email.</small> -->
             </div>
         </div>
         
+
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label> Password:<br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
-                    <%#= u.label :password %>
                     <%= u.password_field :password, :placeholder => "Enter your password" %>
                 </label>
-            </div>
+                <!-- <small class="error">Please enter your password.</small>
+            </div> -->
         </div>
         
 
         
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-12 medium-6 large-4 columns">
                 <label> <br />
-                    <!-- <input type="text" placeholder="large-12.columns" /> -->
                     <%= u.submit "Finish profile" %>
                 </label>
             </div>
