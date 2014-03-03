@@ -18,21 +18,34 @@
   </div>
 
 <% end %> 
+<br />  
 
 <% if current_user %>
 <%= link_to_if(current_user, "Log out", auth_path(current_user.id), method: :delete ) %>
 <% end %>
+<br />
 
-<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-  <div class="flipper">
-    <div class="front">
-      <span class="name">Let's Do This!</span>
-    </div>
-    <div class="back">
-      <div class="back-logo"></div>
-      <div class="back-title">Team work!</div>
-      <p>We can do this if we work together.</p>
+
+<% @users.each do |u| %>
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+        <div class="front">
+            <%# @users.each do |u| %>
+                <span class="name"><%= u.full_name %></span>
+            <%# end %>
+        </div>
+        <%# @users.each do |u| %>
+            <div class="back">
+                <div class="back-logo"></div>
+                <div class="back-title"><%= u.full_name %></div>
+                <p>
+                    <%= u.location  %>
+                    <br />
+                    <%= u.email  %>
+                </p>
+            </div>
+        <%# end %>
     </div>
   </div>
-</div>
+<% end %>
 

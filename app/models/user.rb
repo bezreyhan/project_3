@@ -14,6 +14,17 @@ class User < ActiveRecord::Base
 
     scope :italy_loctions, -> { where(location: ['Venice, Italy', 'Rome, Italy', 'Florence, Italy'])}
 
+    def full_name
+        "#{first_name} #{last_name}"
+        #[first_name, last_name].join(' ')
+    end
+
+    # def full_name=(name)
+    #     split = name.split(' ', 2)
+    #     self.first_name = split.first
+    #     self.last_name = split.last
+    # end
+
     def authenticated? pwd
         self.hashed_password ==
         BCrypt::Engine.hash_secret(pwd, self.salt)

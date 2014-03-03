@@ -5,7 +5,7 @@ class InterestsController < ApplicationController
     #search_thing = URI.decode(params[:search])
     
     if params[:topic] == nil
-      @interests = Interst.all
+      @interests = Interest.all
 
     elsif params[:topic] == "angularJS"
       @interests = Interest.find_by(name: "AngularJS").interests
