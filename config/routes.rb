@@ -1,6 +1,6 @@
 Paired::Application.routes.draw do
 
-  resources :auths, only: [:new, :create, :destory]
+  resources :auths, only: [:new, :create, :destroy]
   resources :user_interests
   resources :interests
   resources :users

@@ -1,3 +1,7 @@
 <%# add navigation links to this file %>
 <li>Profile<%#= link_to 'Profile', user_path %></li>
-<li>Log Out<%#= link_to 'Log Out', new_auth_path %></li>
+<li>
+    <% if current_user %>
+        <%= link_to_if(current_user, "Log out", auth_path(current_user.id), method: :delete ) %>
+    <% end %>
+</li>

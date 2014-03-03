@@ -13,14 +13,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username))
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = "user was successfully created"
       redirect_to users_path
     else
       render action: 'new'
       flash[:error] = "aww shucks, user was not created!"
-    end    
+    end
   end
 
   def edit

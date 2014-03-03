@@ -1,2 +1,15 @@
-<h1>Auths#new</h1>
-<p>Find me in app/views/auths/new.html.erb</p>
+<div>
+    <%= form_for @user, {url:"/auths", method:"post"} do |u| %>
+        <div>
+            <%= u.label :email %> <br />
+            <%= u.text_field :email, :placeholder => "Enter your email" %>
+        </div>
+        <div>
+            <%= u.label :password %> <br />
+            <%= u.password_field :password, :placeholder => "Enter your password" %> 
+        </div>  
+        <div>
+            <%= u.submit "Log in" %>
+        </div>
+    <% end %>
+</div>

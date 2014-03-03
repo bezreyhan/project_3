@@ -9,6 +9,19 @@
   <dd><a href="#">3 stars</a></dd>
 </dl>
 
+<% @users.each do |u| %> 
+  
+  <div>
+    <%= u.username %>
+    <%= u.email %>
+    <%= u.hashed_password %>
+  </div>
+
+<% end %> 
+
+<% if current_user %>
+<%= link_to_if(current_user, "Log out", auth_path(current_user.id), method: :delete ) %>
+<% end %>
 
 <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
   <div class="flipper">

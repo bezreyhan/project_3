@@ -12,9 +12,18 @@
   </head>
 
   <body>
+
     <main role="main">
-      <%= yield %>
-      <%= javascript_include_tag "application" %>
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+
+        <%= params %>
+
+        <% if current_user %>
+             <%= current_user.email %>
+        <% else %>
+            <%= "no current user" %>
+        <% end %>
     </main>
   </body>
 </html>
