@@ -4,55 +4,38 @@
       <h1><a href="#">Paired</a></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-  </ul>
-
-    <!-- <li class="has-form">
-    <div class="row collapse">
-        <div class="large-8 small-9 columns">
-          <input type="text" placeholder="Find Stuff">
-        </div>
-        <div class="large-4 small-3 columns">
-          <a href="#" class="alert button expand">Search</a>
-        </div>
-    </div>
-    </li> -->
 
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="active"><a href="#">Welcome back, <%= current_user.first_name %></a></li>
       <li class="has-dropdown">
         <a href="#">Profile Options</a>
         <ul class="dropdown">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to "Home", users_path %></li>
+          <li><%= link_to "My Profile", user_path(current_user), method: 'get' %></li>
+          <li><%= link_to "Edit", edit_user_path(current_user) %></li>
+          <li><%= link_to "Log Out", new_auth_path, method: 'delete' %></li>
         </ul>
       </li>
     </ul>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
-    </ul>
+    
   </section>
+  </ul>
 </nav>
 
-<!-- <div class="row">
-    <div class="large-12 columns">
-        <nav class="top bar">
-            <ul class="title area">
-                <li class="name"></li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-            </ul>
-
-            <section class="top-bar-section">
-                <ul class="left">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Log Out</a></li>
-                </ul>
-            </section>
-        </nav>
-    </div>
+<!-- <div>
+    <li class="has-form">
+        <div class="row collapse">
+            <div class="large-4 medium-5 small-7 columns">
+              <input type="text" placeholder="Find Stuff">
+            </div>
+            <div class="large-1 medium-2 small-3 columns">
+              <a href="#" class="alert button expand">Search</a>
+            </div>
+        </div>
+    </li>
 </div> -->
+
+

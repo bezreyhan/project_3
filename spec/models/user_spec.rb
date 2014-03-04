@@ -20,8 +20,8 @@ describe User do
   #           User.create(@valid_attributes.merge(location: 'Florence, Italy'))
   #           unwanted = User.create(@valid_attributes.merge(location: 'Paris, France'))
             
+              # expect(User.italy_locations).not_to include unwanted
   #           expect(User.italy_locations).to eq 3  # => not sufficient, you need the next line
-  #           expect(User.italy_locations).not_to include unwanted
   #       end
   #   end 
   # end 
