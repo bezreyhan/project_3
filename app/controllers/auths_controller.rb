@@ -12,6 +12,7 @@ class AuthsController < ApplicationController
     def create
         if !(User.where(email: params[:user][:email]).empty?)
             user = User.find_by(email: params[:user][:email])
+            # puts user.inspect
             ## is it a problem that the password exists in the params, even temporarily
             if user.authenticated?(params[:user][:password])
                 session[:user_id] = user.id
