@@ -20,10 +20,6 @@
 <% end %> 
 <br />  
 
-<%# if current_user %>
-<%#= link_to_if(current_user, "Log out", auth_path(current_user.id), method: :delete ) %>
-<%# end %>
-<br />
 
 
 <% @users.each do |u| %>
