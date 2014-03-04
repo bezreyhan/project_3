@@ -1,3 +1,19 @@
+<%= render partial: '/layouts/navbar' %>
+<h1>My Profile</h1>
 <h4>
     <%= current_user ? current_user.username : "(logged in)" %> 
 </h4>
+
+  
+  <div>
+    <u>Name:</u> <br />
+    <%= current_user.full_name %><br />
+    <u>Email:</u> <br />
+    <%= current_user.email %><br />
+    <u>Location:</u><br /> 
+    <%= current_user.location %><br />
+    <u>Interests:</u><br />
+    <%#= current_user.interests.first.name %>
+  </div>
+<br />
+<%= link_to "Home", users_path %><br />

@@ -16,11 +16,12 @@ class AuthsController < ApplicationController
             if user.authenticated?(params[:user][:password])
                 session[:user_id] = user.id
                 ## change the oath of this redirect_to to go to the list of profiles
-                redirect_to user_path(session[:user_id])
+                redirect_to users_path(session[:user_id])
                 flash[:notice] = "Your logged in!"
             else
                 flash[:notice] = "Sorry the email and password did not match"
                 redirect_to new_auth_path
+                alert('not working')
             end
         else
           flash[:notice] = "Sorry, we can't find that email"

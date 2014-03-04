@@ -1,3 +1,5 @@
+<h1>Paired</h1>
+
 <div>
     <%= form_for @user, {url:"/auths", method:"post"} do |u| %>
         <div class="row">
@@ -21,7 +23,8 @@
 
         
         <div>
-            <%= u.submit "Log in" %>
+            <%= u.submit "Log in" %> | 
+            <%= link_to "Sign up", new_user_path %> 
         </div>
     <% end %>
 </div>

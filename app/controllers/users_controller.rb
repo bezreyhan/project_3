@@ -2,7 +2,15 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    
+    # if session[:background] == nil
+    #     session[:background] = 0
+    # elsif session[:background] >= 4
+    #     session[:background] = 0
+    # else
+    #     session[:background] += 1
+    # end
+
+    # @background_images = ['team.jpg', 'hands_together_hearts.jpg', 'heads.jpg', 'together_hands.jpg', 'working_together.jpg']
   end
 
   def show
@@ -16,8 +24,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id  
       flash[:notice] = "user was successfully created"
-      redirect_to users_path
+      redirect_to edit_user_path(current_user)
     else
       render action: 'new'
       flash[:error] = "aww shucks, user was not created!"
