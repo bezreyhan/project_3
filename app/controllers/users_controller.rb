@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     # else
     #     session[:background] += 1
     # end
-
     # @background_images = ['team.jpg', 'hands_together_hearts.jpg', 'heads.jpg', 'together_hands.jpg', 'working_together.jpg']
   end
 
