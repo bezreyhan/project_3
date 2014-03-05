@@ -25,7 +25,25 @@ h4 {
 	background-repeat: no-repeat; 
 }
 
+/* sign up page */
+
+.signInParagraph {
+	float: right;
+	position: relative;
+	margin-right: 30px;
+	width: 300px;
+}
+
+.signInList {
+	text-decoration: none;
+}
+
+
 /* text color */
+
+.signUpUser {
+	color: #771100;
+}
 
 #signUpPage {
 	color: #660000;
@@ -33,6 +51,8 @@ h4 {
 
 .profileTitle {
 	color: #551100;
+	width: 200px;
+	margin: auto 0;
 }
 
 .newUser {
@@ -43,9 +63,8 @@ h4 {
 	color: #662200;
 }
 
-.signUpUser {
-	color: #771100;
-}
+
+
 
 
 

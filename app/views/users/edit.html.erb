@@ -47,12 +47,24 @@
             Better believe you know about <%= i.name %>...<br />
             <div class="row" id='rating_selection'>
                 <div class="small-12 medium-6 large-4 columns"  >
-                     <label>Choose Your Skill Level</label>
-                            <input type="radio" name="rating" value="1" id="rating1"><label for="rating1">1</label>
+                    <label>Choose Your Skill Level</label>
+                    <% ui = UserInterest.where(user_id: current_user.id,
+                        interest: i)[0]
+                    ui = UserInterest.new(skill_level:0) if !ui %>
+
+                    <%= fields_for "user_interests[]", ui do |builder| %>
+                        <%= builder.select :skill_level, (1..5).map{|x| [x,x]} %>
+                        <%# (1..5).each do |num| %>
+                            <%#= builder.radio_button :skill_level, num %>
+                            <%#= builder.label :skill_level, num %>
+                        <%# end %>
+                    <% end %> 
+
+                            <!-- <input type="radio" name="rating" value="1" id="rating1"><label for="rating1">1</label>
                             <input type="radio" name="rating" value="2" id="rating2"><label for="rating2">2</label>
                             <input type="radio" name="rating" value="3" id="rating3"><label for="rating3">3</label>
                             <input type="radio" name="rating" value="4" id="rating4"><label for="rating4">4</label>
-                            <input type="radio" name="rating" value="5" id="rating5"><label for="rating5">5</label>
+                            <input type="radio" name="rating" value="5" id="rating5"><label for="rating5">5</label> -->
                 </div>
             </div>
 

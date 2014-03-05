@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
     has_many :user_interests
     has_many :interests, through: :user_interests
+    accepts_nested_attributes_for :user_interests
 
     validates :first_name, presence: true, length: { maximum: 50 }
     validates :last_name, presence: true, length: { maximum: 50 }
