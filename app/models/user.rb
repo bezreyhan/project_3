@@ -17,14 +17,15 @@ class User < ActiveRecord::Base
 
     def full_name
         "#{first_name} #{last_name}"
-        #[first_name, last_name].join(' ')
     end
 
-    # def full_name=(name)
-    #     split = name.split(' ', 2)
-    #     self.first_name = split.first
-    #     self.last_name = split.last
-    # end
+    def self.search(search)
+        if search
+            find(:all, :conditions => ['common_name LIKE ? OR planting_season LIKE ? OR description LIKE ?', "%#{search.capitalize}%", "%#{search.capitalize}%", "%#{search.downcase}%"])
+        else
+            find(:all)
+        end
+    end
 
     def authenticated? pwd
         self.hashed_password ==
