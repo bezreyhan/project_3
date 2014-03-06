@@ -6,7 +6,9 @@ gem 'bcrypt', github: 'codahale/bcrypt-ruby'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-
+group :development do 
+gem 'letter_opener'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'foundation-rails'
@@ -37,6 +39,7 @@ end
 group :development, :test do 
   gem 'pry'
   gem 'rspec-rails'
+  gem 'factory_girl_rails', '4.2.1'
 end  
 
 # Use ActiveModel has_secure_password

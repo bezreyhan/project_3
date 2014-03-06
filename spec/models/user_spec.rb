@@ -3,12 +3,12 @@ require 'spec_helper'
 describe User do
     before :each do 
         @valid_attributes = {
-          first_name: 'Lorencio',
-          last_name: 'Italiano', 
-          username: 'litaliano',
-          password: '123456', 
-          location: 'Venice, Italy',
-          email: 'italiano@italy.com'
+            first_name: 'Lorencio',
+            last_name: 'Italiano', 
+            username: 'litaliano',
+            password: '123456', 
+            location: 'Venice, Italy',
+            email: 'italiano@italy.com'
         }
     end  
   
@@ -29,38 +29,45 @@ describe User do
   describe 'validations' do
 
     context "when first name is not present" do
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(first_name: ''))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(first_name: ''))
+            expect(user).not_to be_valid
+        end
     end
 
     context "when first name is too long" do
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(first_name: 'a' * 51))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(first_name: 'a' * 51))
+            expect(user).not_to be_valid
+        end
     end
 
     context "when last name is not present" do
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(last_name: ''))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(last_name: ''))
+            expect(user).not_to be_valid
+        end
     end
 
     context "when last name is too long" do
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(last_name: 'a' * 51))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(last_name: 'a' * 51))
+            expect(user).not_to be_valid
+        end
     end
 
+    it "returns a user's full name as a string" do
+        user = User.new(first_name: 'John', last_name: 'Doe',
+        email: 'johndoe@example.com')
+        expect(user.full_name).to eq 'John Doe'
+    end
+
+
     context "when email is not present" do
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(email: ''))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(email: ''))
+            expect(user).not_to be_valid
+        end
     end
 
     context "when email format is invalid" do
@@ -84,12 +91,12 @@ describe User do
     end
 
     context "if user with email 'aa@bb.com' exists" do
-      it "is invalid with a duplicate email address" do
-        User.create(
-          @valid_attributes.merge(email: 'aa@bb.com'))
-        user = User.new(@valid_attributes.merge(email: 'aa@bb.com'))
-        expect(user).to have(1).errors_on(:email)
-      end
+        it "is invalid with a duplicate email address" do
+            User.create(
+                @valid_attributes.merge(email: 'aa@bb.com'))
+            user = User.new(@valid_attributes.merge(email: 'aa@bb.com'))
+            expect(user).to have(1).errors_on(:email)
+        end
     end
 
     # context "email address with mixed case" do
@@ -114,25 +121,55 @@ describe User do
             # user = double
             # user.should_receive(email).and_return(email.downcase) # => use return in case you want to
 
+
     context "when password is not present" do 
-      it "the record is not valid" do
-        user = User.new(@valid_attributes.merge(password: ''))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do
+            user = User.new(@valid_attributes.merge(password: ''))
+            expect(user).not_to be_valid
+        end
     end
 
     context "when password is not at least 6 characters" do 
-      it "the record is not valid" do 
-        user = User.new(@valid_attributes.merge(password: '12345'))
-        expect(user).not_to be_valid
-      end
+        it "the record is not valid" do 
+            user = User.new(@valid_attributes.merge(password: '12345'))
+            expect(user).not_to be_valid
+        end
+    end
+
+    context "when user is valid" do
+        it "is valid with a first_name, last_name, email and password" do
+            user = User.new(
+            first_name: 'Aaron',
+            last_name: 'Jo',
+            email: 'tester@example.com',
+            password: 'example')
+            expect(user).to be_valid
+        end
+    end
+  
+  
+  # describe 'Users' do
+
+    describe "filter last name by letter" do
+        before :each do
+            @smith = User.create(first_name: 'John', last_name: 'Smith',
+                email: 'jsmith@example.com', password: 'example')
+            @jones = User.create(first_name: 'Tim', last_name: 'Jones',
+                email: 'tjones@example.com', password: 'example')
+            @johnson = User.create(first_name: 'John', last_name: 'Johnson',
+                email: 'jjohnson@example.com', password: 'example')
+        end
+
+        context "matching letters " do
+            it "should return a sorted array of results that match" do
+                expect(User.by_letter("J")).to eq [@johnson, @jones]
+            end
+        end
     end
   end
 end
 
-# context "when username is not present" do 
-    #   it "the record is not valid" do 
-    #     user = User.new(@valid_attributes.merge(username: ''))
-    #     expect(user).not_to be_valid
-    #   end
-# end
+
+
+
+

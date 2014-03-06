@@ -25,7 +25,7 @@ describe UsersController do
   end
 
   describe "GET 'new'" do
-    it "returns http success" do
+    it "a new user form" do
       User.should_receive(:new).and_return("a new user form")
       get 'new'
       response.should be_success
@@ -34,7 +34,7 @@ describe UsersController do
   end
 
   describe "GET 'show'" do
-    it "returns http success" do
+    it "returns the user profile page" do
       User.should_receive(:find).with('123').and_return("a user")
       get 'show', {id: 123}
       expect(assigns(:user)).to eq "a user"
@@ -43,7 +43,7 @@ describe UsersController do
   end
 
   describe "GET 'index'" do
-    it "returns http success" do
+    it "returns an array of users" do
       User.should_receive(:all).and_return("an array of users")
       get 'index'
       response.should be_success
@@ -53,6 +53,10 @@ describe UsersController do
 
 
   describe "DELETE 'destroy'" do
+    # before each do
+
+    # end
+
     it "deletes the user" do
       user = User.create(username: 'lorencio', password:'123456')
       expect { delete 'destroy', id: user.id }.to change(User,:count).by(-1)

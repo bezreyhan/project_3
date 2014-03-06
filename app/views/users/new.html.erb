@@ -2,65 +2,65 @@
 <!--  background-class="signUpPage" -->
 <h1 class="profileTitle"><strong><u>Paired</u></strong></h1>
 <h4 class="profileTag" id="firstStop">Learn faster with a pair</h4>
-<h4 class="newUser" id="numero2">Sign up!</h4>
+<h4 class="newUser">Sign up!</h4>
 
 <div class="signUpUser">
     <div class="small-12 medium-10 large-8 columns">
-    <%= form_for @user do |u| %>
-        <div class="row">
-            <div class="small-12 medium-7 large-6 columns">
-                <label><u>First name: </u><br />
-                    <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
-                </label>
+        <%= form_for @user do |u| %>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>First name: </u><br />
+                        <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-       <div class="row">
-            <div class="small-12 medium-7 large-6 columns">
-                <label><u>Last name: </u><br />
-                    <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
-                </label>
+           <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Last name: </u><br />
+                        <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="small-12 medium-7 large-6 columns">
-                <label><u>Email: </u><br />
-                    <%= u.text_field :email, :placeholder => "Enter your email" %>
-                </label>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Email: </u><br />
+                        <%= u.text_field :email, :placeholder => "Enter your email" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="small-12 medium-7 large-6 columns">
-                <label><u>Password: </u><br />
-                    <%= u.password_field :password, :placeholder => "6+ characters" %>
-                </label>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Password: </u><br />
+                        <%= u.password_field :password, :placeholder => "6+ characters" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="small-12 medium-7 large-6 columns">
-                <label> <br />
-                    <%= link_to "Log in", new_auth_path %> |
-                    <%= u.submit "Sign up!" %>
-                </label>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label id="numero2"> <br />
+                        <%= link_to "Log in", new_auth_path %> |
+                        <%= u.submit "Sign up!" %>
+                    </label>
+                </div>
             </div>
-        </div>
-    <% end %>
-</div>
-
-<div class="small-12 medium-2 large-4 columns">
-    <div class="signInParagraph" id="numero1">
-        <ul class="signInList"><h3 class="paragraphTitle">Why you want to use this site: </h3>
-            <li><p>Meet other people with whom to program!</p></li>
-            <li><p>Learn faster.</p></li>
-            <li><p>Share knowledge.</p></li>
-            <li><p>Focus on the problem at hand.</p></li>
-        </ul>
-    
+        <% end %>
     </div>
-</div>
+
+    <div class="small-12 medium-2 large-4 columns">
+        <div class="signInParagraph" id="numero1">
+            <ul class="signInList"><h3 class="paragraphTitle"><u>Why you want to use this site: </u></h3>
+                <li><p>Meet other people with whom to program!</p></li>
+                <li><p>Learn faster.</p></li>
+                <li><p>Share knowledge.</p></li>
+                <li><p>Focus on the problem at hand.</p></li>
+            </ul>
+        
+        </div>
+    </div>
 </div>
 
 

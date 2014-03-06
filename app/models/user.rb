@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
               uniqueness: true
-    validates :password, presence:true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }
 
     scope :italy_loctions, -> { where(location: ['Venice, Italy', 'Rome, Italy', 'Florence, Italy'])}
 
@@ -19,9 +19,13 @@ class User < ActiveRecord::Base
         "#{first_name} #{last_name}"
     end
 
+    def self.by_letter(letter)
+        where("lastname LIKE ?", "#{letter}%").order_by(:last_name)
+    end
+
     def self.search(search)
         if search
-            find(:all, :conditions => ['common_name LIKE ? OR planting_season LIKE ? OR description LIKE ?', "%#{search.capitalize}%", "%#{search.capitalize}%", "%#{search.downcase}%"])
+            find(:all, :conditions => ['first_name LIKE ? OR last_name LIKE ? OR interests LIKE ?', "%#{search.capitalize}%", "%#{search.capitalize}%", "%#{search.downcase}%"])
         else
             find(:all)
         end

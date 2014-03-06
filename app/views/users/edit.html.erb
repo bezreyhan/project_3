@@ -37,38 +37,34 @@
             <div class="small-12 medium-6 large-4 columns">
                 <label>Interests:<br />
                      <!-- collection_select -->
-                    <%= collection_check_boxes :user, :password, Interest.all, :id, :name %>
+                    <%= collection_select :user, :password, Interest.all, :id, :name %>
                 </label>
                 <!-- <small class="error">Please check an interest box.</small> -->
             </div>
         </div>
 
-        <% Interest.all.each do |i| %>
-            Better believe you know about <%= i.name %>...<br />
-            <div class="row" id='rating_selection'>
-                <div class="small-12 medium-6 large-4 columns"  >
-                    <label>Choose Your Skill Level</label>
-                    <% ui = UserInterest.where(user_id: current_user.id,
-                        interest: i)[0]
-                    ui = UserInterest.new(skill_level:0) if !ui %>
+        
+        <div class="row" id='rating_selection'>
+            <div class="small-12 medium-6 large-4 columns"  >
+                <label>Choose Your Skill Level</label>
+                    
+                <%# Interest.all.each do |interest| %>
 
-                    <%= fields_for "user_interests[]", ui do |builder| %>
-                        <%= builder.select :skill_level, (1..5).map{|x| [x,x]} %>
-                        <%# (1..5).each do |num| %>
-                            <%#= builder.radio_button :skill_level, num %>
-                            <%#= builder.label :skill_level, num %>
-                        <%# end %>
+                    <%= fields_for :user_interests do |builder| %>
+                        <%= builder.select :skill_level, (1..5) %>
                     <% end %> 
+
 
                             <!-- <input type="radio" name="rating" value="1" id="rating1"><label for="rating1">1</label>
                             <input type="radio" name="rating" value="2" id="rating2"><label for="rating2">2</label>
                             <input type="radio" name="rating" value="3" id="rating3"><label for="rating3">3</label>
                             <input type="radio" name="rating" value="4" id="rating4"><label for="rating4">4</label>
                             <input type="radio" name="rating" value="5" id="rating5"><label for="rating5">5</label> -->
+                            <%# end %>
                 </div>
             </div>
 
-        <% end %>
+        
 
 
         <div class="row">
@@ -90,15 +86,15 @@
         </div>
         
 
-        <div class="row">
+       <!--  <div class="row">
             <div class="small-12 medium-6 large-4 columns">
                 <label> Password:<br />
-                    <%= u.password_field :password, :placeholder => "Enter your password" %>
-                </label>
+                    <%#= u.password_field :password, :placeholder => "Enter your password" %>
+                </label> -->
                 <!-- <small class="error">Please enter your password.</small> -->
-            </div>
+            <!-- </div>
         </div>
-        
+         -->
 
         
         <div class="row">
