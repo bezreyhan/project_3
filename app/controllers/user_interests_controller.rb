@@ -1,18 +1,18 @@
 class UserInterestsController < ApplicationController
   
   def index
-    @userinterests = UserInterests.all
+    @userinterests = UserInterest.all
   end
 
   def new
-    @userinterests = UserInterests.new
+    @userinterest = UserInterest.new
   end
 
   def create
-    @userinterests = UserInterests.new(params.require(:userintersts).permit(:username))
-    if @userinterests.save
+    @userinterest = UserInterest.new(params.require(:user_interest).permit(:user_id, :interest_id, :skill_level))
+    if @userinterest.save
       flash[:notice] = "Your interest was successfully created"
-      redirect_to userinterests_path
+      redirect_to edit_user_path(current_user)
     else
       render action: 'new'
       flash[:error] = "Aww shucks, your interest was not created!"
@@ -20,15 +20,15 @@ class UserInterestsController < ApplicationController
   end
 
   def show
-    @userinterests = UserInterests.find(params[:id])
+    @userinterests = UserInterest.find(params[:id])
   end
 
   def edit
-    @userinterests = UserInterests.find(params[:id])
+    @userinterests = UserInterest.find(params[:id])
   end
 
   def update
-    @userinterests = UserInterests.find(params[:id])
+    @userinterests = UserInterest.find(params[:id])
     if @userinterests.update(user_params)
       session[:userinterests_id] = @userinterests.id
       redirect_to @userinterests
@@ -40,7 +40,7 @@ class UserInterestsController < ApplicationController
   end
 
   def destroy
-    @userinterests = UserInterests.find(params[:id])
+    @userinterests = UserInterest.find(params[:id])
     @userinterests.destroy
     flash[:success] = "Your interest was destroyed"
     redirect_to userinterests_url

@@ -2,14 +2,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    # if session[:background] == nil
-    #     session[:background] = 0
-    # elsif session[:background] >= 4
-    #     session[:background] = 0
-    # else
-    #     session[:background] += 1
-    # end
-    # @background_images = ['team.jpg', 'hands_together_hearts.jpg', 'heads.jpg', 'together_hands.jpg', 'working_together.jpg']
   end
 
   def show
@@ -18,10 +10,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    # 3.times do
-    #   interest = @user.interests.build
-    #   4.times { interest.user_interests.build }
-    # end
   end
 
   def create
@@ -37,8 +25,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def linkedin_create
+    data = request.env['omniauth.auth']
+
+    if User.from_omniauth(data) == false
+        user = User.find_by(email: data["info"]["email"])
+        session[:user_id] = user.id
+        redirect_to edit_user_path(current_user) 
+    else
+        user = User.find_by(email: data["info"]["email"])
+        session[:user_id] = user.id
+        redirect_to users_path
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
+    @user_interest = UserInterest.new
+    @user_interests = current_user.user_interests
   end
 
   def update
@@ -68,8 +72,8 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :location, :email, :password, 
-         :user_interests_attributes[:skill_level, :id]
+      params.require(:user).permit(:first_name, :last_name, :username, :location, :email, :password#, 
+         #:user_interests_attributes[:skill_level, :id]
       )
     end
 end

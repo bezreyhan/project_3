@@ -31,6 +31,20 @@ class User < ActiveRecord::Base
         end
     end
 
+    def self.from_omniauth(data)
+        if User.where(email: data["info"]["email"]).empty?
+            user = User.new
+            user.email = data["info"]["email"]
+            user.first_name = data["info"]["first_name"]
+            user.last_name = data["info"]["last_name"]
+            user.password = SecureRandom.urlsafe_base64(n=6)
+            user.save!
+            return false
+        else
+            return true
+        end
+    end
+    
     def authenticated? pwd
         self.hashed_password ==
         BCrypt::Engine.hash_secret(pwd, self.salt)

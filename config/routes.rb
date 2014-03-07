@@ -5,8 +5,9 @@ Paired::Application.routes.draw do
   resources :user_interests
   resources :interests
   resources :users
-  
+  get 'users/linkedin_create' => 'users#linkedin_create'
 
+  get '/auth/:provider/callback', to: 'users#linkedin_create'
   # delete "users" => "users#destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
