@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user_interests = current_user.user_interests
   end
 
   def update

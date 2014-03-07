@@ -1,7 +1,20 @@
 <%= render partial: '/layouts/navbar' %>
 <h1>My Profile</h1>
 
-<%= render template: "user_interests/new" %> 
+<%= render template: "user_interests/new" %>
+
+<h1><%=current_user.first_name %>'s languages and skill levels</h1>
+<!-- where else could this logic be done?  -->
+<div>
+    <% @user_interests.each do |ui| %>
+        <%= Interest.find_by(id: ui.interest_id).name %> 
+        <%= ui.skill_level %>
+        <%= button_to "Delete", ui, method: :delete, class: "button tiny alert"%>
+        <br>
+    <% end %> 
+    <br>
+    <br>
+</div> 
 
 <div>
     <%= form_for @user do |u| %>
