@@ -1,63 +1,87 @@
-<!-- <div>
-    .top_container { background-image: url(<%#= asset_path(@background_images[session[]]); %>); }
-</div> -->
-<h1>Paired</h1>
-<h4>Learn faster with a pair</h4>
+<body id="signUpPage">
+<!--  background-class="signUpPage" -->
+<h1 class="profileTitle"><strong><u>Paired</u></strong></h1>
+<h4 class="profileTag" id="firstStop">Learn faster with a pair</h4>
+<h4 class="newUser">Sign up!</h4>
 
-<div>
-    <h4>Sign up!</h4>
-    <%= form_for @user do |u| %>
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label>First name:<br />
-                    <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
-                </label>
-            </div>s
-        </div>
-
-       <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label>Last name:<br />
-                    <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
-                </label>
+<div class="signUpUser">
+    <div class="small-12 medium-10 large-8 columns">
+        <%= form_for @user do |u| %>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>First name: </u><br />
+                        <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
+                    </label>
+                </div>
             </div>
 
-        </div>
-
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label> Email:<br />
-                    <%= u.text_field :email, :placeholder => "Enter your email" %>
-                </label>
+           <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Last name: </u><br />
+                        <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label> Password:<br />
-                    <%= u.password_field :password, :placeholder => "Enter your password" %>
-                </label>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Email: </u><br />
+                        <%= u.text_field :email, :placeholder => "Enter your email" %>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label> <br />
-                    <%= link_to "Log in", new_auth_path %> |
-                    <%= u.submit "Sign up!" %>
-                </label>
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label><u>Password: </u><br />
+                        <%= u.password_field :password, :placeholder => "6+ characters" %>
+                    </label>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="small-12 medium-7 large-6 columns">
+                    <label id="numero2"> <br />
+                        <%= link_to "Log in", new_auth_path %> |
+                        <%= u.submit "Sign up!" %>
+                    </label>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="small-12 medium-2 large-4 columns">
+        <div class="signInParagraph" id="numero1">
+            <ul class="signInList"><h3 class="paragraphTitle"><u>Why you want to use this site: </u></h3>
+                <li><p>Meet other people with whom to program!</p></li>
+                <li><p>Learn faster.</p></li>
+                <li><p>Share knowledge.</p></li>
+                <li><p>Focus on the problem at hand.</p></li>
+            </ul>
+        
         </div>
-    <% end %>
+    </div>
 </div>
 
 
-<button data-reveal-id="myModal" data-reveal-ajax="http://some-url">
-    Click Me For A Modal
-</button>
 
-<div id="myModal-1" class="reveal-modal medium">
-  <h1>Header</h1>
-  <p>Lorem ipsum</p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+
+<ol class="joyride-list" data-joyride>
+  <li data-id="firstStop" data-text="Next" data-options="tip_location: top">
+    <p>Welcome to Paired!</p>
+  </li>
+  <li data-id="numero1" data-class="custom so-awesome" data-text="Next">
+    <h4>Stop #1</h4>
+    <p>Where you can meet someone with whom to pair program.</p>
+  </li>
+  <li data-id="numero2" data-button="Next" data-options="tip_location:top;tip_animation:fade">
+    <h4>Stop #2</h4>
+    <p>Sign up, tell us what you know, and connect.</p>
+  </li>
+  <li data-button="End">
+    <h4>Stop #3</h4>
+    <p>And meet your pair!</p>
+  </li>
+</ol>
+
+

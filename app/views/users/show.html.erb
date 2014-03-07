@@ -1,8 +1,8 @@
 <%= render partial: '/layouts/navbar' %>
 <h1>My Profile</h1>
-<h4>
+<h3>
     <%= current_user ? current_user.username : "(logged in)" %> 
-</h4>
+</h3>
 
   
   <div>
@@ -13,7 +13,7 @@
     <u>Location:</u><br /> 
     <%= current_user.location %><br />
     <u>Interests:</u><br />
-    <%#= current_user.interests.first.name %>
+    <%= current_user.interests.first.name %>
   </div>
 <br />
 <%= link_to "Home", users_path %><br />

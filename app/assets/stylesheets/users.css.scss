@@ -11,6 +11,62 @@ h4 {
 }
 
 
+/* background */
+
+.signUpPage { 
+	background-image: url(heads_1.jpg);
+	position: center;
+	background-repeat: no-repeat; 
+}
+
+.logInPage {
+	background-image: url(can_band_together_1.jpg);
+	position: center;
+	background-repeat: no-repeat; 
+}
+
+/* sign up page */
+
+.signInParagraph {
+	float: right;
+	position: relative;
+	margin-right: 30px;
+	width: 300px;
+	color: #882200;
+}
+
+
+
+
+/* sign up page text color */
+
+.paragraphTitle {
+	color: #552200;
+}
+
+#signUpPage {
+	color: #660000;
+}
+
+.profileTitle {
+	color: #551100;
+}
+
+.newUser {
+	color: #772200;
+}
+
+.profileTag {
+	color: #662200;
+}
+
+
+
+
+
+
+
+
 /* profiles */
 
 .flip-container {
