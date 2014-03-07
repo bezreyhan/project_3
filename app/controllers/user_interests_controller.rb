@@ -14,8 +14,8 @@ class UserInterestsController < ApplicationController
       flash[:notice] = "Your interest was successfully created"
       redirect_to edit_user_path(current_user)
     else
-      render action: 'new'
-      flash[:error] = "Aww shucks, your interest was not created!"
+      redirect_to edit_user_path(current_user)
+      flash[:error] = "You already have that language silly!"
     end    
   end
 
@@ -35,14 +35,14 @@ class UserInterestsController < ApplicationController
       flash[:notice] = "Your interest was successfully updated."
     else
       render action: 'edit'
-      flash[:notice] = "Your interest was not able to be updated, please make sure to fill out all of the fields."
+      flash[:error] = "Your interest was not able to be updated, please make sure to fill out all of the fields."
     end
   end
 
   def destroy
     @userinterests = UserInterest.find(params[:id])
     @userinterests.destroy
-    flash[:success] = "Your interest was destroyed"
-    redirect_to userinterests_url
+    redirect_to edit_user_path(current_user)
   end
+
 end

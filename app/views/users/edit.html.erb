@@ -1,6 +1,7 @@
 <%= render partial: '/layouts/navbar' %>
 <h1>My Profile</h1>
 
+<%= flash[:error] %> 
 <div class="row">
     <div class="small-12 medium-6 large-4 columns">
         <label>Interests:</label><br />
@@ -25,11 +26,13 @@
 </div>
 
 <h1><%=current_user.first_name %>'s languages and skill levels</h1>
+<!-- where else could this logic be done?  -->
 
 <div>
     <% @user_interests.each do |ui| %>
         <%= Interest.find_by(id: ui.interest_id).name %> 
-        <%= ui.skill_level %> 
+        <%= ui.skill_level %>
+        <%= button_to "Delete", ui, method: :delete, class: "button tiny alert"%>
         <br>
     <% end %> 
     <br>
@@ -46,6 +49,8 @@
                 <small class="error">Please enter your first name.</small>
             </div>
         </div>
+
+
     
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">

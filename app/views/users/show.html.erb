@@ -13,7 +13,9 @@
     <u>Location:</u><br /> 
     <%= current_user.location %><br />
     <u>Interests:</u><br />
+    <% unless current_user.interests.empty? %>
     <%= current_user.interests.first.name %>
+    <% end %>
   </div>
 <br />
 <%= link_to "Home", users_path %><br />
