@@ -5,7 +5,7 @@
     <div class="small-12 medium-6 large-4 columns">
         <label>Interests:</label><br /><small>required</small>
 
-            <%= form_for @user_interest do |ui| %>
+            <%= form_for @user_interest, :html => {"data-abide" => ''} do |ui|%>
 
                 <%= ui.hidden_field(:user_id, value: @user.id) %>
                 
@@ -17,9 +17,9 @@
                 4 <%= ui.radio_button(:skill_level, 4) %>
                 5 <%= ui.radio_button(:skill_level, 5) %>
 
-                <%= ui.submit "Add Skill" %>
+                <%= ui.submit "Add Skill" %> 
+                <small class="error">Please only click a language once.</small>           
             <% end %>
-        <small class="error">Please only click a language once.</small>
     </div>
 </div>
 
@@ -36,7 +36,7 @@
 </div>
 
 <div>
-    <%= form_for @user do |u| %>
+    <%= form_for @user, :html => {"data-abide" => ''} do |u|%>
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
                 <label>First name:<br /><small>required</small>
