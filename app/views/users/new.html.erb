@@ -42,8 +42,8 @@
             <div class="row">
                 <div class="small-12 medium-7 large-6 columns">
                     <label id="numero2"> <br />
-                        <%= link_to "Log in", new_auth_path %> |
-                        <%= u.submit "Sign up!" %>
+                        <%= u.submit "Sign up!" %> |
+                        <a href="#" data-reveal-id="myModal">Log In</a>
                     </label>
                 </div>
             </div>
@@ -85,3 +85,35 @@
 </ol>
 
 
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>Log In</h2>
+    <div>
+        <%= form_for @user, {url:"/auths", method:"post"} do |u| %>
+            <div class="row">
+                <div class="small-12 medium-6 large-4 columns">
+                    <label> Email:<br />
+                        <%= u.text_field :email, :placeholder => "Enter your email" %>
+                    </label>
+                    <!-- <small class="error">Please enter your email.</small> -->
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="small-12 medium-6 large-4 columns">
+                    <label> Password:<br />
+                        <%= u.password_field :password, :placeholder => "Enter your password" %>
+                    </label>
+                    <!-- <small class="error">Please enter your password.</small> -->
+                </div>
+            </div>
+
+            
+            <div>
+                <%= u.submit "Log in" %> | 
+                <%= link_to "Sign up", new_user_path %> 
+            </div>
+        <% end %>
+    </div>  
+  <a class="close-reveal-modal">&#215;</a>
+</div>

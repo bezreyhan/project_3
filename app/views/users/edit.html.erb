@@ -1,15 +1,14 @@
 <%= render partial: '/layouts/navbar' %>
 <h1>My Profile</h1>
-
+<!-- <form data-abide> -->
 <div class="row">
     <div class="small-12 medium-6 large-4 columns">
-        <label>Interests:</label><br />
+        <label>Interests:</label><br /><small>required</small>
 
             <%= form_for @user_interest do |ui| %>
 
                 <%= ui.hidden_field(:user_id, value: @user.id) %>
                 
-                <!-- collection_select -->
                 <%= ui.collection_select :interest_id, Interest.all, :id, :name %>
 
                 1 <%= ui.radio_button(:skill_level, 1) %>
@@ -40,7 +39,7 @@
     <%= form_for @user do |u| %>
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label>First name:<br />
+                <label>First name:<br /><small>required</small>
                     <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
                 </label>
                 <small class="error">Please enter your first name.</small>
@@ -49,7 +48,7 @@
     
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label>Last name:<br />
+                <label>Last name:<br /><small>required</small>
                     <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
                 </label>
                 <small class="error">Please enter your last name.</small>
@@ -63,7 +62,6 @@
                 <label>Username:<br />
                     <%= u.text_field :username, :placeholder => "Enter your username" %>
                 </label>
-                <small class="error">Please enter your username.</small>
             </div>
         </div>
         
@@ -79,24 +77,13 @@
 
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label> Email:<br />
+                <label> Email:<br /><small>required</small>
                     <%= u.text_field :email, :placeholder => "Enter your email" %>
                 </label>
                 <small class="error">Please enter your email.</small>
             </div>
         </div>
         
-
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label> Password:<br />
-                    <%= u.password_field :password, :placeholder => "Enter your password" %>
-                </label>
-                <small class="error">Please enter your password.</small>
-            </div>
-        </div>
-         
-
         
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
@@ -108,3 +95,6 @@
 
     <% end %>
 </div>
+<!-- </form>
+ -->
+

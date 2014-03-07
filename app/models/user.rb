@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-    attr_accessor :password
     before_save { self.email = email.downcase }
+    attr_accessor :password
+    
 
     has_many :user_interests
     has_many :interests, through: :user_interests
@@ -10,7 +11,7 @@ class User < ActiveRecord::Base
     validates :last_name, presence: true, length: { maximum: 50 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-              uniqueness: true
+              uniqueness: { case_sensitive: false } 
     validates :password, presence: true, length: { minimum: 6 }
 
     scope :italy_loctions, -> { where(location: ['Venice, Italy', 'Rome, Italy', 'Florence, Italy'])}
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
     end
 
     def self.by_letter(letter)
-        where("lastname LIKE ?", "#{letter}%").order_by(:last_name)
+        where("last_name LIKE ?", "#{letter}%").order(:last_name)
     end
 
     def self.search(search)

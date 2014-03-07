@@ -1,6 +1,6 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe AuthsController do
+# describe AuthsController do
 
   # describe "GET 'new'" do
   #   it "returns http success" do
@@ -23,4 +23,4 @@ describe AuthsController do
   #   end
   # end
 
-end
+# end

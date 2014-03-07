@@ -4,13 +4,21 @@ describe UsersController do
 
   describe "POST 'create'" do
     context "when user is valid" do 
-      it "user is persisted, show flash notice, redirect to users_path" do
-        User.any_instance.stub(:valid?).and_return(true)
-        post 'create', { user: {username: 'lorencio'} }
+      it "user is persisted, show flash notice, redirect to edit_user_path" do
+        user = User.any_instance.stub(:valid?).and_return(true)
+        post 'create', { user: {first_name: 'lorencio', last_name: 'jo', email: 'lor@example.com', password: 'example', id: 123} }
         expect(assigns(:user)).to be_persisted
-        expect(assigns(:user).username).to eq "lorencio"
+        expect(assigns(:user).first_name).to eq "lorencio"
+      end
+
+
+      it 'should show a flash notice and redirect to edit_user_path' do
+        @user = double 
+        @user.should_receive(:create) 
+        User.should_receive(:find).with('123').and_return(@user)
+        post 'create', {id: 123}
         expect(flash[:notice]).to eq "user was successfully created"
-        expect(response).to redirect_to users_path
+        response.should be_redirect
       end
     end
     
@@ -53,12 +61,9 @@ describe UsersController do
 
 
   describe "DELETE 'destroy'" do
-    # before each do
-
-    # end
 
     it "deletes the user" do
-      user = User.create(username: 'lorencio', password:'123456')
+      user = User.create(first_name: 'lorencio', last_name: 'jo', email: 'lor@example.com', password: '123456')
       expect { delete 'destroy', id: user.id }.to change(User,:count).by(-1)
     end
 
@@ -67,23 +72,8 @@ describe UsersController do
       user.should_receive(:destroy) 
       User.should_receive(:find).with('123').and_return(user)
       delete 'destroy', {id: 123}
-      response.should be_success
+      response.should be_redirect
     end
-
   end
-
-  # describe "GET 'edit'" do
-  #   it "returns http success" do
-  #     get 'edit'
-  #     response.should be_success
-  #   end
-  # end
-
-  # describe "PUT 'update'" do
-  #   it "returns http success" do
-  #     put 'update'
-  #     response.should be_success
-  #   end
-  # end
 
 end
