@@ -1,10 +1,24 @@
 <%= render partial: '/layouts/navbar' %>
+
+<script type="text/javascript">
+    console.log($('h1'))
+</script>
+
+
+
+
+
+
+
 <h1>My Profile</h1>
 
 <%= render template: "user_interests/new" %>
 
 <h1><%=current_user.first_name %>'s languages and skill levels</h1>
 <!-- where else could this logic be done?  -->
+
+
+
 <div>
     <% @user_interests.each do |ui| %>
         <%= Interest.find_by(id: ui.interest_id).name %> 
@@ -15,6 +29,8 @@
     <br>
     <br>
 </div> 
+
+
 
 <div>
     <%= form_for @user do |u| %>

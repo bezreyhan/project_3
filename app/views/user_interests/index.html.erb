@@ -1,2 +1,13 @@
-<h1>UserInterests#index</h1>
-<p>Find me in app/views/user_interests/index.html.erb</p>
+
+<% @userinterests.each do |ui| %> 
+  <br>
+  <div>
+    User ID: <%= ui.user_id %> <br>
+    Interest ID: <%= ui.interest_id %> <br>
+    Skill Level: <%= ui.skill_level %> <br>
+  </div>
+  <br>
+<% end %> 
+
+
+
