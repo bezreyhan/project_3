@@ -11,22 +11,13 @@ describe User do
             email: 'italiano@italy.com'
         }
     end  
-  
-  # describe 'scopes' do
-  #   describe '.italy_locations' do 
-  #       it 'returns only users who live in Italy' do
-  #           User.create(@valid_attributes.merge(location: 'Venice, Italy'))
-  #           User.create(@valid_attributes.merge(location: 'Rome, Italy'))
-  #           User.create(@valid_attributes.merge(location: 'Florence, Italy'))
-  #           unwanted = User.create(@valid_attributes.merge(location: 'Paris, France'))
-            
-              # expect(User.italy_locations).not_to include unwanted
-  #           expect(User.italy_locations).to eq 3  # => not sufficient, you need the next line
-  #       end
-  #   end 
-  # end 
 
   describe 'validations' do
+    context "when all fields are present for user" do
+        it "is valid when first_name, last_name, email and password are present" do
+            user = User.new(@valid_attributes)
+        end
+    end
 
     context "when first name is not present" do
         it "the record is not valid" do 

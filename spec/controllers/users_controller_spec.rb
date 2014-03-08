@@ -4,7 +4,7 @@ describe UsersController do
 
   describe "POST 'create'" do
     context "when user is valid" do 
-      it "user is persisted, show flash notice, redirect to edit_user_path" do
+      it "user is persisted, show flash notice" do
         user = User.any_instance.stub(:valid?).and_return(true)
         post 'create', { user: {first_name: 'lorencio', last_name: 'jo', email: 'lor@example.com', password: 'example', id: 123} }
         expect(assigns(:user)).to be_persisted
@@ -12,12 +12,9 @@ describe UsersController do
       end
 
 
-      it 'should show a flash notice and redirect to edit_user_path' do
-        @user = double 
-        @user.should_receive(:create) 
-        User.should_receive(:find).with('123').and_return(@user)
-        post 'create', {id: 123}
-        expect(flash[:notice]).to eq "user was successfully created"
+      it 'redirects the page' do
+        user = User.any_instance.stub(:valid?).and_return(true)
+        post 'create', { user: {first_name: 'lorencio', last_name: 'jo', email: 'lor@example.com', password: 'example', id: 123} }
         response.should be_redirect
       end
     end

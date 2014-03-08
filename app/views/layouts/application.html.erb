@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Paired" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -18,13 +18,13 @@
         <%= yield %>
         <%= javascript_include_tag "application" %>
 
-        <%= params %>
+        <%#= params %>
  
-        <% if current_user %>
-             <%= current_user.email %>
-        <% else %>
-            <%= "no current user" %>
-        <% end %>
+        <%# if current_user %>
+             <%#= current_user.email %>
+        <%# else %>
+            <%#= "no current user" %>
+        <%# end %>
     </main>
     
     <script src="js/vendor/jquery.js"></script>

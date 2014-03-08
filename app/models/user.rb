@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
               uniqueness: { case_sensitive: false } 
     validates :password, presence: true, length: { minimum: 6 }
 
-    scope :italy_loctions, -> { where(location: ['Venice, Italy', 'Rome, Italy', 'Florence, Italy'])}
-
     def full_name
         "#{first_name} #{last_name}"
     end
