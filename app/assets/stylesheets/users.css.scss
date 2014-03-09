@@ -16,7 +16,7 @@ h4 {
 .signUpPage { 
 	background-color: #AADDDD;
 	position: center;
-	height: 1700px;
+	height: 2000px;
 	margin: 0 auto;
 	background-repeat: no-repeat; 
 }
@@ -115,8 +115,23 @@ h4 {
 }
 
 
+/* show page*/
 
-/* profiles */
+#myProfile1 {
+	font-size: 30px;
+}
+
+#myProfile {
+	font-size: 25px;
+}
+
+
+/* profile page */
+
+.profilePage {
+	font-size: 60px;
+}
+
 
 .flip-container {
 	-webkit-perspective: 1000;
