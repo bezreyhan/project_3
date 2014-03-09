@@ -1,6 +1,6 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe UserInterestsController do
+# describe UserInterestsController do
 
   # describe "GET 'index'" do
   #   it "returns http success" do
@@ -51,4 +51,4 @@ describe UserInterestsController do
   #   end
   # end
 
-end
+# end

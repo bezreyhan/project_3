@@ -58,7 +58,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Your profile was successfully updated."
     else
       render action: 'edit'
-      flash[:notice] = "Your profile was not able to be updated, please make sure to fill out all of the fields."
+      flash[:error] = "Your profile was not able to be updated, please make sure to fill out all of the fields."
     end
   end
 

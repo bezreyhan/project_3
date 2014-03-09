@@ -18,5 +18,6 @@
 
 $(function(){ $(document).foundation();});
 $(function(){ $(document).foundation('joyride', 'start'); });
+$(document).foundation({abide: { timeout: 100000, patterns: { xxx: /^...$/ } }});
 
 

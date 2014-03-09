@@ -14,8 +14,10 @@ h4 {
 /* background */
 
 .signUpPage { 
-	background-image: url(heads_1.jpg);
+	background-color: #AADDDD;
 	position: center;
+	height: 2000px;
+	margin: 0 auto;
 	background-repeat: no-repeat; 
 }
 
@@ -27,29 +29,54 @@ h4 {
 
 /* sign up page */
 
+#signUp {
+	margin-bottom: 500px;
+}
+
 .signInParagraph {
-	float: right;
+	margin: 0 auto;
 	position: relative;
-	margin-right: 30px;
-	width: 300px;
 	color: #882200;
 }
 
+#meetUp {
+	margin-bottom: 300px;
+}
 
+#learn {
+	margin-bottom: 300px;
+}
 
+#share {
+	margin-bottom: 300px;
+}
+
+#focus {
+	margin-bottom: 300px;
+}
+
+#myModal {
+	font-family: 'Stardos Stencil', cursive;
+}
 
 /* sign up page text color */
 
 .paragraphTitle {
 	color: #552200;
+	width: 500px;
+	margin: 0 auto;
+	font-family: 'Stardos Stencil', cursive;
+	font-size: 35px;
 }
 
 #signUpPage {
 	color: #660000;
 }
 
-.profileTitle {
-	color: #551100;
+#title {
+	color: #441100;
+	font-size: 60px;
+	font-family: 'Stardos Stencil', cursive;
 }
 
 .newUser {
@@ -60,14 +87,57 @@ h4 {
 	color: #662200;
 }
 
+#innerP {
+	float: left;
+	font-size: 25px;
+	font-family: 'Stardos Stencil', cursive;
+	color: #662200;
+}
+
+.meetPic {
+	float: right;
+	width: 700px;
+	margin: 100px;
+}
+
+.reason1 {
+	font-family: 'Stardos Stencil', cursive;
+	font-size: 35px;
+	color: #662200;
+}
+
+.reason2 {
+	font-family: 'Stardos Stencil', cursive;
+	font-size: 35px;
+	color: #662200;
+}
+
+.reason3 {
+	font-family: 'Stardos Stencil', cursive;
+	font-size: 35px;
+	color: #662200;
+}
 
 
+/* show page*/
+
+#myProfile1 {
+	font-size: 30px;
+	color: #551100;
+}
+
+#myProfile {
+	font-size: 25px;
+	color: #441100;
+}
 
 
+/* profile page */
 
+.profilePage {
+	font-size: 60px;
+}
 
-
-/* profiles */
 
 .flip-container {
 	-webkit-perspective: 1000;
@@ -137,21 +207,21 @@ h4 {
 
 .front .name {
 		font-size: 2em;
-		display: inline-block;
+		/*display: inline-block;*/
 		background: rgba(33, 33, 33, 0.9);
 		color: #f8f8f8;
 		font-family: Courier;
 		padding: 5px 10px;
 		border-radius: 5px;
 		bottom: 60px;
-		left: 25%;
+		/*left: 25%;*/
 		position: absolute;
 		text-shadow: 0.1em 0.1em 0.05em #333;
 
-		-webkit-transform: rotate(-20deg);
+		/*-webkit-transform: rotate(-20deg);
 		-moz-transform: rotate(-20deg);
 		-o-transform: rotate(-20deg);
-		transform: rotate(-20deg);
+		transform: rotate(-20deg);*/
 }
 
 .back-logo {
@@ -193,7 +263,20 @@ h4 {
 }
 
 
+/* forms */
 
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
 
 
 

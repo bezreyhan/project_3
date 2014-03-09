@@ -1,16 +1,7 @@
 <%= render partial: '/layouts/navbar' %>
 
-<script type="text/javascript">
-    console.log($('h1'))
-</script>
 
-
-
-
-
-
-
-<h1>My Profile</h1>
+<h1 id="title"><u>My Profile</u></h1>
 
 <%= render template: "user_interests/new" %>
 
@@ -33,10 +24,11 @@
 
 
 <div>
-    <%= form_for @user do |u| %>
+    <%= form_for @user, :html => {"data-abide" => ''}, :id => 'myForm' do |u|%>
+        <%= render partial: '/layouts/error_messages' %>
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label>First name:<br />
+                <label>First name:<br /><small>Required</small>
                     <%= u.text_field :first_name, :placeholder => "Enter your first name" %>
                 </label>
                 <small class="error">Please enter your first name.</small>
@@ -47,7 +39,7 @@
     
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label>Last name:<br />
+                <label>Last name:<br /><small>Required</small>
                     <%= u.text_field :last_name, :placeholder => "Enter your last name" %>
                 </label>
                 <small class="error">Please enter your last name.</small>
@@ -61,7 +53,6 @@
                 <label>Username:<br />
                     <%= u.text_field :username, :placeholder => "Enter your username" %>
                 </label>
-                <small class="error">Please enter your username.</small>
             </div>
         </div>
         
@@ -77,24 +68,13 @@
 
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
-                <label> Email:<br />
+                <label> Email:<br /><small>required</small>
                     <%= u.text_field :email, :placeholder => "Enter your email" %>
                 </label>
                 <small class="error">Please enter your email.</small>
             </div>
         </div>
         
-
-        <div class="row">
-            <div class="small-12 medium-6 large-4 columns">
-                <label> Password:<br />
-                    <%= u.password_field :password, :placeholder => "Enter your password" %>
-                </label>
-                <small class="error">Please enter your password.</small>
-            </div>
-        </div>
-         
-
         
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
@@ -106,3 +86,5 @@
 
     <% end %>
 </div>
+
+

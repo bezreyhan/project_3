@@ -1,5 +1,5 @@
 <%= render partial: '/layouts/navbar' %>
-<h1>Profiles</h1>
+<h1 id="title"><u>Profiles</u></h1>
 
 <dl class="sub-nav">
   <dt>Filter:</dt>
@@ -9,16 +9,16 @@
   <dd><a href="#">3 stars</a></dd>
 </dl>
 
-<% @users.each do |u| %> 
+<%# @users.each do |u| %> 
   
-  <div>
-    <%= u.username %>
-    <%= u.email %>
-    <%= u.hashed_password %>
+  <!-- <div>
+    <%#= u.username %>
+    <%#= u.email %>
+    <%#= u.hashed_password %>
   </div>
 
-<% end %> 
-<br />  
+<%# end %> 
+<br />   -->
 
 
 
@@ -26,11 +26,9 @@
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
     <div class="flipper">
         <div class="front">
-            <%# @users.each do |u| %>
                 <span class="name"><%= u.full_name %></span>
-            <%# end %>
+
         </div>
-        <%# @users.each do |u| %>
             <div class="back">
                 <div class="back-logo"></div>
                 <div class="back-title"><%= u.full_name %></div>
@@ -42,7 +40,6 @@
                     <%#= u.interest.first.name %> 
                 </p>
             </div>
-        <%# end %>
     </div>
   </div>
 <% end %>

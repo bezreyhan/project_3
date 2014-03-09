@@ -1,18 +1,18 @@
 <%= render partial: '/layouts/navbar' %>
-<h1>My Profile</h1>
-<h3>
+<h1 id="title"><u>My Profile</u></h1>
+<h3 id="myProfile1">
     <%= current_user ? current_user.username : "(logged in)" %> 
 </h3>
 
   
   <div>
-    <u>Name:</u> <br />
+    <u id="myProfile">Name:</u> <br />
     <%= current_user.full_name %><br />
-    <u>Email:</u> <br />
+    <u id="myProfile">Email:</u> <br />
     <%= current_user.email %><br />
-    <u>Location:</u><br /> 
+    <u id="myProfile">Location:</u><br /> 
     <%= current_user.location %><br />
-    <u>Interests:</u><br />
+    <u id="myProfile">Interests:</u><br />
     <% unless current_user.interests.empty? %>
     <%= current_user.interests.first.name %>
     <% end %>

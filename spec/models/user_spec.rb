@@ -11,22 +11,13 @@ describe User do
             email: 'italiano@italy.com'
         }
     end  
-  
-  # describe 'scopes' do
-  #   describe '.italy_locations' do 
-  #       it 'returns only users who live in Italy' do
-  #           User.create(@valid_attributes.merge(location: 'Venice, Italy'))
-  #           User.create(@valid_attributes.merge(location: 'Rome, Italy'))
-  #           User.create(@valid_attributes.merge(location: 'Florence, Italy'))
-  #           unwanted = User.create(@valid_attributes.merge(location: 'Paris, France'))
-            
-              # expect(User.italy_locations).not_to include unwanted
-  #           expect(User.italy_locations).to eq 3  # => not sufficient, you need the next line
-  #       end
-  #   end 
-  # end 
 
   describe 'validations' do
+    context "when all fields are present for user" do
+        it "is valid when first_name, last_name, email and password are present" do
+            user = User.new(@valid_attributes)
+        end
+    end
 
     context "when first name is not present" do
         it "the record is not valid" do 
@@ -99,28 +90,17 @@ describe User do
         end
     end
 
-    # context "email address with mixed case" do
-    #     before do
-    #         user = User.new(@valid_attributes.merge(email: 'example@gmail.com').downcase)
-    #         user.save
-    #     end
+    context "email address with mixed case" do
+        let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+        before :each do
+            @user = User.new(@valid_attributes.merge(email: 'eXaMple@gmail.com', password: 'example'))
+            @user.save
+        end
 
-    #     it "should be saved as all lower-case" do 
-    #         expect(assigns(user.reload.email)).to eq mixed_case_email.downcase
-    #     end
-    # end
-    # 
-    #     let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
-
-    #     it "should be saved as all lower-case" do
-    #         user = User.new(@valid_attributes.merge(email: mixed_case_email)) 
-    #         user.save
-    #         expect(assigns(user.reload.email)).to eq mixed_case_email.downcase
-    #     end
-    #   it "should accept email_downcase before save" do
-            # user = double
-            # user.should_receive(email).and_return(email.downcase) # => use return in case you want to
-
+        it "should be saved as all lower-case" do 
+            expect(@user.email).to eq @user.email.downcase
+        end
+    end
 
     context "when password is not present" do 
         it "the record is not valid" do
@@ -146,11 +126,8 @@ describe User do
             expect(user).to be_valid
         end
     end
-  
-  
-  # describe 'Users' do
 
-    describe "filter last name by letter" do
+    describe "filter last_name by letter" do
         before :each do
             @smith = User.create(first_name: 'John', last_name: 'Smith',
                 email: 'jsmith@example.com', password: 'example')
@@ -163,6 +140,12 @@ describe User do
         context "matching letters " do
             it "should return a sorted array of results that match" do
                 expect(User.by_letter("J")).to eq [@johnson, @jones]
+            end
+        end
+
+        context "non-matching letters" do
+            it "should not return a name that doesn't match" do
+                expect(User.by_letter("J")).not_to include @smith
             end
         end
     end
