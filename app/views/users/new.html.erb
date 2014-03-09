@@ -1,12 +1,13 @@
 <body class="signUpPage">
 <!--  background-class="signUpPage" -->
-<h1 class="profileTitle"><strong><u>Paired</u></strong></h1>
+<h1 id="title"><strong><u>Paired</u></strong></h1>
 <h4 class="profileTag" id="firstStop">Learn faster with a friend</h4>
 <h4 class="newUser">Sign up!</h4>
 
 <div class="signUpUser">
     <div class="small-12 medium-10 large-8 columns" id="signUp">
-        <%= form_for @user, :html => {"data-abide" => ''} do |u| %>
+        <%= form_for @user, :id => "myForm", :html => {"data-abide" => ''} do |u| %>
+            <%= render partial: '/layouts/error_messages' %>
             <div class="row">
                 <div class="small-12 medium-7 large-6 columns">
                     <label><u>First name: </u><br /><small>Required</small>
@@ -71,7 +72,7 @@
                         </div>
 
                         <div class="small-12 medium-6 large-7 columns">
-                            <%= image_tag("meet.jpg", :class => "meetPic", :alt => "thumbs up pic") %>
+                            <%= image_tag("meet.jpg", :alt => "thumbs up pic") %>
                         </div>
                     </label>
                 </div>
@@ -81,7 +82,7 @@
                     <br />
                     <label id="numero2"> <br />
                         <div class="small-12 medium-6 large-3 columns">
-                            <p id="innerP">You will learn faster.</p>
+                            <p id="innerP">You will learn faster with someone else.</p>
                         </div>
 
                         <div class="small-12 medium-6 large-7 columns">
@@ -158,7 +159,7 @@
 
 
 <div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Log In</h2>
+  <h2 id="title" >Log In</h2>
     <div>
         <%= form_for @user, {url:"/auths", method:"post"} do |u| %>
             <div class="row">
@@ -187,3 +188,14 @@
     </div>  
   <a class="close-reveal-modal">&#215;</a>
 </div>
+
+<script>
+$('#myForm')
+  .on('invalid', function () {
+    var invalid_fields = $(this).find('[data-invalid]');
+    console.log(invalid_fields);
+  })
+  .on('valid', function () {
+    console.log('valid!');
+  });
+</script>

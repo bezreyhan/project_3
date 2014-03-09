@@ -1,11 +1,12 @@
 <%= render partial: '/layouts/navbar' %>
-<h1>My Profile</h1>
+<h1 id="title"><u>My Profile</u></h1>
 
 <div class="row">
     <div class="small-12 medium-6 large-4 columns">
         <label>Interests:</label><br /><small>Required</small>
 
-            <%= form_for @user_interest, :html => {"data-abide" => ''} do |ui|%>
+            <%= form_for @user_interest, :html => {"data-abide" => ''}, :id => 'myForm' do |ui|%>
+                <%= render partial: '/layouts/error_messages' %>
 
                 <%= ui.hidden_field(:user_id, value: @user.id) %>
                 
@@ -36,7 +37,8 @@
 </div>
 
 <div>
-    <%= form_for @user, :html => {"data-abide" => ''} do |u|%>
+    <%= form_for @user, :html => {"data-abide" => ''}, :id => 'myForm' do |u|%>
+        <%= render partial: '/layouts/error_messages' %>
         <div class="row">
             <div class="small-12 medium-6 large-4 columns">
                 <label>First name:<br /><small>Required</small>
