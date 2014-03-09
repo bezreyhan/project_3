@@ -13,8 +13,8 @@ r = Interest.create(name: "Ruby")
 Interest.create(name: "Python")
 js = Interest.create(name: "JavaScript")
 
-l = User.create(first_name: "Lorin", last_name: "Thwaits", username: "lorinisdashit", email: "lorin@example.com", password: "example", location: "Los Angeles")
+l = User.create(first_name: "Lorin", last_name: "Thwaits", username: "lorinisdashit", email: "lorin@example.com", password: "example", location: "Los Angeles", latitude: 34.0128358, longitude: -118.495338)
 l.user_interests.create(interest: js)
 
-m = User.create(first_name: "Maren", last_name: "Woodruff", username: "marenishere", email: "maren@example.com", password: "example", location: "Los Angeles")
+m = User.create(first_name: "Maren", last_name: "Woodruff", username: "marenishere", email: "maren@example.com", password: "example", location: "Los Angeles", latitude: 34.0128358, longitude: -118.495338)
 m.user_interests.create([{interest: js}, {interest: r}])

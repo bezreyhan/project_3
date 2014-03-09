@@ -6,8 +6,8 @@
 
 <div class="signUpUser">
     <div class="small-12 medium-10 large-8 columns" id="signUp">
-        <%= form_for @user, :id => "myForm", :html => {"data-abide" => ''} do |u| %>
-            <%= render partial: '/layouts/error_messages' %>
+        <%= form_for @user do |u| %>
+            <%#= render partial: '/layouts/error_messages' %>
             <div class="row">
                 <div class="small-12 medium-7 large-6 columns">
                     <label><u>First name: </u><br /><small>Required</small>
@@ -40,7 +40,7 @@
                     <label><u>Password: </u><br /><small>Required</small>
                         <%= u.password_field :password, :placeholder => "6+ characters" %>
                     </label>
-                    <small class="error">Please enter your password.</small>
+                    <!-- <small class="error">Please enter your password.</small> -->
                 </div>
             </div>
 

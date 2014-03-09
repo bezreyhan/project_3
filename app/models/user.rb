@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
               uniqueness: { case_sensitive: false } 
     
-    validates :password, presence: true, length: { minimum: 6 }, :on => :create
+    validates :password, presence: true, length: { minimum: 4 }, :on => :create
 
     def full_name
         "#{first_name} #{last_name}"
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
     geocoded_by :location
     after_validation :geocode
-    
+
     def self.by_letter(letter)
         where("last_name LIKE ?", "#{letter}%").order(:last_name)
     end
