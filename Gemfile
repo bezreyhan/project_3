@@ -5,6 +5,8 @@ gem 'rails', '4.0.2'
 gem 'bcrypt', github: 'codahale/bcrypt-ruby'
 gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'
+gem 'geocoder'
+gem 'gmaps4rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

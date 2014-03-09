@@ -1,0 +1,17 @@
+<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<div id="map-canvas"></div>
+<script type="text/javascript">
+    var marker; // get the json obj + parse for latlong
+    
+function initialize() {
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {provider_id: 'AIzaSyD0669qE8-xHbI-414wmX3_yLJ6q-r3bFY'}, internal: {id: 'map-canvas'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

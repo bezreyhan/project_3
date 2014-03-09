@@ -1,7 +1,18 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    respond_to do |format|
+        format.html { @users = User.all }
+        format.json { render json: User.all   }
+    end
+
+    # @users = User.all
+      @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      latLng = Geocoder.coordinates(@user)
+      marker.lat user.latitude
+      marker.lng user.longitude 
+      # marker.infowindow user.description
+    end
   end
 
   def show

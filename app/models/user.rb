@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
         "#{first_name} #{last_name}"
     end
 
+    geocoded_by :location
+    after_validation :geocode
+    
     def self.by_letter(letter)
         where("last_name LIKE ?", "#{letter}%").order(:last_name)
     end
