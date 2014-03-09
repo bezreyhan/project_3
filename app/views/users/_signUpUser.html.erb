@@ -1,9 +1,3 @@
-<body class="signUpPage">
-<!--  background-class="signUpPage" -->
-<h1 id="title"><strong><u>Paired</u></strong></h1>
-<h4 class="profileTag" id="firstStop">Learn faster with a friend</h4>
-<h4 class="newUser">Sign up!</h4>
-
 <div class="signUpUser">
     <div class="small-12 medium-10 large-8 columns" id="signUp">
         <%= form_for @user, :id => "myForm", :html => {"data-abide" => ''} do |u| %>
@@ -40,17 +34,17 @@
                     <label><u>Password: </u><br /><small>Required</small>
                         <%= u.password_field :password, :placeholder => "6+ characters" %>
                     </label>
-                    <small class="error">Please enter your password.</small>
+                    <small class="error">Please enter your email.</small>
                 </div>
             </div>
 
             <div class="row">
                 <div class="small-12 medium-7 large-6 columns">
-
                     <label id="numero5"> <br />
                         <%= u.submit "Sign up!" %> <br />
                         <%= link_to "Sign Up with LinkedIn", "/auth/linkedin" %> <br /> 
                         <a href="#" data-reveal-id="myModal">Log In</a>
+
                     </label>
                 </div>
             </div>
@@ -123,9 +117,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <ol class="joyride-list" data-joyride>
   <li data-id="firstStop" data-text="Next" data-options="tip_location: top">

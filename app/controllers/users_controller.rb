@@ -52,7 +52,8 @@ class UsersController < ApplicationController
     #   @user.update_attributes(image: params[:user][:image])
     # end
 
-    if @user.update(user_params)
+    if @user.update(params.require(:user).permit(:first_name, :last_name, :username, :location, :email
+      ))
       session[:user_id] = @user.id
       redirect_to @user
       flash[:notice] = "Your profile was successfully updated."
@@ -72,8 +73,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :location, :email, :password#, 
-         #:user_interests_attributes[:skill_level, :id]
+      params.require(:user).permit(:first_name, :last_name, :username, :location, :email, :password
       )
     end
 end

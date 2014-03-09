@@ -9,17 +9,18 @@
 <!-- where else could this logic be done?  -->
 
 
-
-<div>
-    <% @user_interests.each do |ui| %>
-        <%= Interest.find_by(id: ui.interest_id).name %> 
-        <%= ui.skill_level %>
-        <%= button_to "Delete", ui, method: :delete, class: "button tiny alert"%>
+<% unless @user_interests == nil %>
+    <div>
+        <% @user_interests.each do |ui| %>
+            <%= Interest.find_by(id: ui.interest_id).name %> 
+            <%= ui.skill_level %>
+            <%= button_to "Delete", ui, method: :delete, class: "button tiny alert"%>
+            <br>
+        <% end %> 
         <br>
-    <% end %> 
-    <br>
-    <br>
-</div> 
+        <br>
+    </div> 
+<% end %> 
 
 
 
