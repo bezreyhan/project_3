@@ -35,7 +35,9 @@
 
         </div>
             <div class="back">
-                <div class="back-logo"><%#= user.image_file_size ? image_tag(user.avatar.url(:small)) %></div>
+                <div class="back-logo" style="background: url(<%= u.avatar_file_size ? u.avatar.url(:medium) : "/assets/peared.jpg" %>) 0 0 no-repeat">
+
+                </div>
                 <div class="back-title"><%= u.full_name %></div>
                 <p>
                     <%= u.location  %>

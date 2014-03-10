@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
     
     validates :password, presence: true, length: { minimum: 4 }, :on => :create
 
-    has_attached_file :avatar, :styles => {:thumb => '50x50', :medium => '100x100'}, :default_url => "/images/:style/missing.png"
+    has_attached_file :avatar, :styles => {:thumb => '50x50#', :small => '100x100#', :medium => '125x125>'}, :default_url => "/images/peared.jpg"
+
     crop_attached_file :avatar
 
 
