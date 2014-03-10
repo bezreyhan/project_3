@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
     
     validates :password, presence: true, length: { minimum: 4 }, :on => :create
 
+    has_attached_file :avatar, :styles => {:thumb => '50x50', :medium => '100x100'}, :default_url => '/images/paired.jpg'
+    crop_attached_file :avatar
+
+    validates_attachment_presence :avatar
+    validates_attachment_size :avatar, :less_than => 5.megabytes
+    validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
     def full_name
         "#{first_name} #{last_name}"
     end

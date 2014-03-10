@@ -7,6 +7,9 @@ gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem "paperclip", "~> 4.1"
+gem 'papercrop'
+
 
 # Use postgresql as the database for Active Record
 gem 'pg'

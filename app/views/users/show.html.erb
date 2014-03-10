@@ -8,6 +8,9 @@
   <div>
     <u id="myProfile">Name:</u> <br />
     <%= current_user.full_name %><br />
+    <% if recipe.image_file_size %>
+        <%= image_tag post.avatar.url(:medium) if post.avatar.file? %>
+    <% end %>
     <u id="myProfile">Email:</u> <br />
     <%= current_user.email %><br />
     <u id="myProfile">Location:</u><br /> 

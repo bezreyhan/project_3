@@ -1,4 +1,6 @@
 class AuthsController < ApplicationController
+    before_filter :require_user
+    
     def new
         if current_user
             redirect_to users_path
@@ -30,6 +32,9 @@ class AuthsController < ApplicationController
         end 
     end
 
+    def require_user
+        redirect_to new_user_path unless current_user
+    end
 
     def destroy
         session[:user_id] = nil
