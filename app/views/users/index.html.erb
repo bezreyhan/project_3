@@ -35,7 +35,7 @@
 
         </div>
             <div class="back">
-                <div class="back-logo"></div>
+                <div class="back-logo"><%#= user.image_file_size ? image_tag(user.avatar.url(:small)) %></div>
                 <div class="back-title"><%= u.full_name %></div>
                 <p>
                     <%= u.location  %>

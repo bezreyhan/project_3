@@ -1,5 +1,4 @@
 class AuthsController < ApplicationController
-    before_filter :require_user
     
     def new
         if current_user
@@ -30,10 +29,6 @@ class AuthsController < ApplicationController
           flash[:notice] = "Sorry, we can't find that email"
           redirect_to new_auth_path
         end 
-    end
-
-    def require_user
-        redirect_to new_user_path unless current_user
     end
 
     def destroy

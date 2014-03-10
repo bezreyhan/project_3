@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.avatar = nil
     if @user.save
       UserMailer.welcome(@user.id).deliver
       session[:user_id] = @user.id  
@@ -39,7 +38,6 @@ class UsersController < ApplicationController
 
   def linkedin_create
     data = request.env['omniauth.auth']
-    @user.avatar = nil
     if User.from_omniauth(data) == false
         user = User.find_by(email: data["info"]["email"])
         session[:user_id] = user.id
