@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
             user.email = data["info"]["email"]
             user.first_name = data["info"]["first_name"]
             user.last_name = data["info"]["last_name"]
+            user.location = data["info"]["location"]["name"]
             user.password = SecureRandom.urlsafe_base64(n=6)
             user.save!
             return false

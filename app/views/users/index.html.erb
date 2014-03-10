@@ -6,50 +6,52 @@
 
 <h1 id="title"><u>Profiles</u></h1>
 
-<dl class="sub-nav">
-  <dt>Filter:</dt>
-  <dd class="active"><a href="#">All</a></dd>
-  <dd><a href="#">1 stars</a></dd>
-  <dd><a href="#">2 stars</a></dd>
-  <dd><a href="#">3 stars</a></dd>
-</dl>
-
-<%# @users.each do |u| %> 
-  
-  <!-- <div>
-    <%#= u.username %>
-    <%#= u.email %>
-    <%#= u.hashed_password %>
-  </div>
-
-<%# end %> 
-<br />   -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#languageFilter li').on('click', 'a', function() {
+      language = $(this).attr('id');
+      $('#container').isotope({ filter: ("."+language) });
+      console.log(language);
+    });
+  });
+</script>
 
 
 
-<% @users.each do |u| %>
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-    <div class="flipper">
-        <div class="front">
-                <span class="name"><%= u.full_name %></span>
+<div id="languageFilter"> 
+  <a href="#" class="button" data-dropdown="drop">Language &raquo;</a>
+  <ul id="drop" class="tiny f-dropdown" data-dropdown-content>
+    <% Interest.all.each do |interest| %> 
+      <li><a href="#" id="<%= interest.name %>"> <%= interest.name %></a></li>
+    <% end %> 
+  </ul>
+</div>
 
-        </div>
-            <div class="back">
-                <div class="back-logo" style="background: url(<%= u.avatar_file_size ? u.avatar.url(:medium) : "/assets/peared.jpg" %>) 0 0 no-repeat">
 
-                </div>
-                <div class="back-title"><%= u.full_name %></div>
-                <p>
-                    <%= u.location  %>
-                    <br />
-                    <%= u.email  %>
-                    <br />
-                    <%#= u.interest.first.name %> 
-                </p>
+<div id="container">
+    <% @users.each do |u| %>
+      <div class="flip-container <% u.interests.each do |interest| %> <%= interest.name %> <% end %>" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+                    <span class="name"><%= u.full_name %></span>
+
             </div>
-    </div>
-  </div>
-<% end %>
+                <div class="back">
+                    <div class="back-logo" style="background: url(<%= u.avatar_file_size ? u.avatar.url(:medium) : "/assets/peared.jpg" %>) 0 0 no-repeat">
+
+                    </div>
+                    <div class="back-title"><%= u.full_name %></div>
+                    <p>
+                        <%= u.location  %>
+                        <br />
+                        <%= u.email  %>
+                        <br /> 
+                    </p>
+                </div>
+        </div>
+      </div>
+    <% end %>
+</div>
 
 
 <%= render partial: 'map' %>

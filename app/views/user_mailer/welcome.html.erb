@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Welcome to Paired</title>
+  <style type="text/css">
+  body, td { color:#00000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+  .divider { background-color:#9FEE00; height:2px; }
+  .episode h2 { margin-top:0; margin-bottom:8px; font-size:18px; }
+  .episode p { margin:8px 0; }
+  .episode img { border:solid 1px #777777; }
+  .episode .duration { font-size:11px;color:#555555; }
+  #footer { font-size:11px; color:#555555; }
+  #footer a { color:#555555;}
+  </style>
+</head>
+<body>
+  <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+    <tr><td align="center" valign="top">
+      <table width="650" id="main" border="0" cellpadding="0" cellspacing="20">
+        <tr>
+          <td id="header" colspan="2">
+            <a href="http://postimg.org"><img src="http://s13.postimg.org/bc3h23lfb/cropped_pear_banner_2.jpg" width="423" height="56" alt="PearBanner"></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#555555" height="2"></td>
+        </tr>
+        <tr class="episode">
+          <td>
+            <a href="#"><img src="http://s1.postimg.org/7pzr579fz/pairedpic.jpg" width="200" height="125" alt="#310 Getting Started with Paired"></a>
+          </td>
+          <td valign="top">
+            <h2><%= @user.first_name %> Welcome to Paired</h2>
+            <p>Paired.com is a way for you to connect with people just like you, to learn Pair Programing with people that have the same skill level as you and live in your area!</p>
+            <p>
+              <a href="http://localhost:3000/auths/new">Log in here</a>
+              
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#9FEE00" height="2"></td>
+        </tr>
+        <tr>
+          <td id="footer" colspan="2" align="center">
+            <p><a href="#">Unsubscribe</a> if you do not wish to receive these emails in the future.</p>
+            <p>&copy;2014 Paired.com</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
